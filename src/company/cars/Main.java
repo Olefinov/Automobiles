@@ -2,7 +2,6 @@ package company.cars;
 
 import company.enums.CarsType;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Main {
@@ -20,33 +19,50 @@ public class Main {
         Products product8 = new Products(9, "Mercedes", "EQC", 1, 100000, CarsType.Electric);
 
         Products [] products = {product,product1,product2,product3, product4, product5, product6, product7, product8};
-        Products [] gasoline = new Products[products.length];
+        Products [] quantitymore10 = new Products[products.length];
         Products [] electric = new Products[products.length];
-        Products [] diesel = new Products[products.length];
-
+        Products [] audi = new Products[products.length];
 
         int lessThan20kPrice = 0;
-        int withAudiName = 0;
+        int withMercedesName = 0;
 
-        for (int i = 0; i < products.length; i++) {
-            if (products[i].getType().equals(CarsType.Electric)) {
+        for (int i = 0; i< products.length; i++){
+            if (products[i].getType().equals(CarsType.Electric)){
                 electric[i] = products[i];
-                //System.out.println(electric.length);
-                //System.out.println(" ");
+            }
+            if (products[i].getName().equals("Audi")) {
+                audi[i] = products[i];
+            }
+            if (products[i].getQuantity() > 10){
+                quantitymore10[i] = products[i];
+            }
+            if (products[i].getPrice() < 20000){
+                lessThan20kPrice = lessThan20kPrice + 1;
+            }
+            if (products[i].getName().matches("(.*)Merc(.*)")){
+                withMercedesName = withMercedesName + 1;
             }
 
-            if (products[i].getType().equals(CarsType.Gasoline)) {
-                gasoline[i] = products[i];
-                System.out.println(Arrays.toString(gasoline));
-            }
-            if (products[i].getPrice() < 20000) {
-                lessThan20kPrice = lessThan20kPrice + 1;
-                //System.out.println(lessThan20kPrice);
-            }
-            if (products[i].getName().matches("(.*)Audi(.*)")) {
-                withAudiName = withAudiName + 1;
-            }
+
         }
+        System.out.println(" ");
+        System.out.println("Electric cars = " + Arrays.toString(electric));
+        System.out.println(" ");
+        System.out.println("Audi cars = " + Arrays.toString(audi));
+        System.out.println(" ");
+        System.out.println("Cars with count more than 10 = " + Arrays.toString(audi));
+        System.out.println(" ");
+        System.out.println("How much cars with price less than 20k = " + lessThan20kPrice);
+        System.out.println(" ");
+        System.out.println("How much cars with 'Merc' words = " + withMercedesName);
+        System.out.println(" ");
+
+
+
+
+
+
+
     }
 }
 

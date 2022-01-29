@@ -21,38 +21,15 @@ public class Products {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        Products product = (Products) o;
-
-        if (id != product.id) {
-            return false;
-        }
-        if (price != product.price) {
-            return false;
-        }
-        if (name != null ? !name.equals(product.name) : product.name != null) {
-            return false;
-        }
-        return type == product.type;
-    }
-
-    @Override
     public String toString() {
-        return "Car " +
+        return "[Car " +
                 "id=" + id +
-                ", name=" + name + '\'' +
-                ", model='" + model + '\'' +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                ", engine=" + type +
-                '}';
+                ", name= " + name +
+                ", model= " + model +
+                ", quantity= " + quantity +
+                ", price= " + price +
+                ", engine= " + type +
+                ']';
     }
 
     public int getId() {return id;}
